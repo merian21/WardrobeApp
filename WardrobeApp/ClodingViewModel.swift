@@ -17,6 +17,15 @@ class ClothingViewModel: ObservableObject {
         clothingItems = [
             ClothingItem(photo: Image("sweaterImage"), brandName: "Brand A", color: "Black", type: ClothingType.sweater),
             ClothingItem(photo: Image("sweaterImage"), brandName: "Brand B", color: "Black", type: ClothingType.pants),
+            ClothingItem(photo: Image("sweaterImage"), brandName: "Brand A", color: "Black", type: ClothingType.sweater),
+            ClothingItem(photo: Image("sweaterImage"), brandName: "Brand B", color: "Black", type: ClothingType.pants),
+            ClothingItem(photo: Image("sweaterImage"), brandName: "Brand A", color: "Black", type: ClothingType.sweater),
+            ClothingItem(photo: Image("sweaterImage"), brandName: "Brand B", color: "Black", type: ClothingType.pants),
+            ClothingItem(photo: Image("sweaterImage"), brandName: "Brand A", color: "Black", type: ClothingType.sweater),
+            ClothingItem(photo: Image("sweaterImage"), brandName: "Brand B", color: "Black", type: ClothingType.pants),
+            ClothingItem(photo: Image("sweaterImage"), brandName: "Brand A", color: "Black", type: ClothingType.sweater),
+            ClothingItem(photo: Image("sweaterImage"), brandName: "Brand B", color: "Black", type: ClothingType.pants),
+
             // Add more sample items here
         ]
     }

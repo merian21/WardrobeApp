@@ -12,8 +12,14 @@ struct ContentView: View {
         TabView {
             WardrobeView()
                 .tabItem {
-                    Image(systemName: "rectangle.grid.2x2.fill")
+                    Image(systemName: "square.grid.2x2.fill")
                     Text("Wardrobe")
+                }
+            
+            OutfitSuggestionView()
+                .tabItem {
+                    Image(systemName: "lightbulb.fill")
+                    Text("Suggestions")
                 }
         }
     }
