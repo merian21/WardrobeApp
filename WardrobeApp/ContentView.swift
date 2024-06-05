@@ -11,6 +11,8 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             TabView {
+                
+                
                 WardrobeView()
                     .tabItem {
                         Image(systemName: "square.grid.2x2.fill")
@@ -28,6 +30,7 @@ struct ContentView: View {
                         Image(systemName: "person.fill")
                         Text("Outfits")
                     }
+                
             }
             VStack {
                 Spacer()

@@ -18,6 +18,7 @@
 		3479E0A82C10F51500D7BF22 /* WardrobeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3479E0A72C10F51500D7BF22 /* WardrobeView.swift */; };
 		3479E0AA2C10F86600D7BF22 /* OutfitSuggestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3479E0A92C10F86600D7BF22 /* OutfitSuggestionView.swift */; };
 		3479E0AC2C10F91500D7BF22 /* AddClothingItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3479E0AB2C10F91500D7BF22 /* AddClothingItemButton.swift */; };
+		3479E0AE2C10FEA800D7BF22 /* AddClothingItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3479E0AD2C10FEA800D7BF22 /* AddClothingItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		3479E0A72C10F51500D7BF22 /* WardrobeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeView.swift; sourceTree = "<group>"; };
 		3479E0A92C10F86600D7BF22 /* OutfitSuggestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutfitSuggestionView.swift; sourceTree = "<group>"; };
 		3479E0AB2C10F91500D7BF22 /* AddClothingItemButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClothingItemButton.swift; sourceTree = "<group>"; };
+		3479E0AD2C10FEA800D7BF22 /* AddClothingItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClothingItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				3479E0912C10DFF800D7BF22 /* WardrobeAppApp.swift */,
 				3479E0932C10DFF800D7BF22 /* ContentView.swift */,
 				3479E0AB2C10F91500D7BF22 /* AddClothingItemButton.swift */,
+				3479E0AD2C10FEA800D7BF22 /* AddClothingItemView.swift */,
 				3479E0A92C10F86600D7BF22 /* OutfitSuggestionView.swift */,
 				3479E0952C10DFFB00D7BF22 /* Assets.xcassets */,
 				3479E0972C10DFFB00D7BF22 /* Preview Content */,
@@ -160,6 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3479E0A02C10E2E900D7BF22 /* ClothingItem.swift in Sources */,
+				3479E0AE2C10FEA800D7BF22 /* AddClothingItemView.swift in Sources */,
 				3479E0942C10DFF800D7BF22 /* ContentView.swift in Sources */,
 				3479E0AC2C10F91500D7BF22 /* AddClothingItemButton.swift in Sources */,
 				3479E0A62C10F43A00D7BF22 /* ClodingViewModel.swift in Sources */,
