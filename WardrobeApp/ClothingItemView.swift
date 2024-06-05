@@ -30,7 +30,7 @@ struct ClothingItemView: View {
                 .padding(.horizontal, 10)
                 
                 HStack {
-                    Text(item.color)
+                    Text(item.type.rawValue + " • " + item.color)
                         .font(.system(size: 16))
                     .foregroundColor(.gray)
                     
