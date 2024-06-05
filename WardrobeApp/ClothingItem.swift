@@ -14,4 +14,9 @@ struct ClothingItem: Identifiable {
     let photo: Image
     let brandName: String
     let color: String
+    
+    // Sample item for previews
+    static var sampleItem: ClothingItem {
+        return ClothingItem(photo: Image("sweaterImage"), brandName: "SampleBrand", color: "Black")
+    }
 }
