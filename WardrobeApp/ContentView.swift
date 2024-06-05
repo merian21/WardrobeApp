@@ -9,18 +9,30 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        TabView {
-            WardrobeView()
-                .tabItem {
-                    Image(systemName: "square.grid.2x2.fill")
-                    Text("Wardrobe")
-                }
-            
-            OutfitSuggestionView()
-                .tabItem {
-                    Image(systemName: "lightbulb.fill")
-                    Text("Suggestions")
-                }
+        ZStack {
+            TabView {
+                WardrobeView()
+                    .tabItem {
+                        Image(systemName: "square.grid.2x2.fill")
+                        Text("Wardrobe")
+                    }
+                
+                Text("")
+                    .tabItem {
+                        Image(systemName: "plus")
+                    }
+                    .disabled(true)
+                
+                OutfitSuggestionView()
+                    .tabItem {
+                        Image(systemName: "person.fill")
+                        Text("Outfits")
+                    }
+            }
+            VStack {
+                Spacer()
+                AddClothingItemButton()
+            }
         }
     }
 }

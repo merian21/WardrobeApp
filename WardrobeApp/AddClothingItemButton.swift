@@ -9,7 +9,20 @@ import SwiftUI
 
 struct AddClothingItemButton: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button {
+            //TODO
+        } label: {
+            Image(systemName: "plus")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 35, height: 35)
+        }
+        .frame(width: 80, height: 45)
+        .background(Color.black)
+        .cornerRadius(20)
+        .foregroundColor(Color(UIColor.systemBackground))
+        .shadow(color: Color.black.opacity(0.2) ,radius: 1, x: 2, y: 2)
+
     }
 }
 
