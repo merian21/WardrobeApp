@@ -15,23 +15,22 @@ class ClothingViewModel: ObservableObject {
     // Initializer to set up sample data
     init() {
         clothingItems = [
-            ClothingItem(photo: Image("sweaterImage"), brandName: "Brand A", color: "Black", type: ClothingType.sweater),
-            ClothingItem(photo: Image("sweaterImage"), brandName: "Brand B", color: "Black", type: ClothingType.pants),
-            ClothingItem(photo: Image("sweaterImage"), brandName: "Brand A", color: "Black", type: ClothingType.sweater),
-            ClothingItem(photo: Image("sweaterImage"), brandName: "Brand B", color: "Black", type: ClothingType.pants),
-            ClothingItem(photo: Image("sweaterImage"), brandName: "Brand A", color: "Black", type: ClothingType.sweater),
-            ClothingItem(photo: Image("sweaterImage"), brandName: "Brand B", color: "Black", type: ClothingType.pants),
-            ClothingItem(photo: Image("sweaterImage"), brandName: "Brand A", color: "Black", type: ClothingType.sweater),
-            ClothingItem(photo: Image("sweaterImage"), brandName: "Brand B", color: "Black", type: ClothingType.pants),
-            ClothingItem(photo: Image("sweaterImage"), brandName: "Brand A", color: "Black", type: ClothingType.sweater),
-            ClothingItem(photo: Image("sweaterImage"), brandName: "Brand B", color: "Black", type: ClothingType.pants),
-
+            ClothingItem(photo: Image("sweaterImage"), brandName: "Brand A", color: .black, type: ClothingType.sweater),
+            ClothingItem(photo: Image("sweaterImage"), brandName: "Brand A", color: .black, type: ClothingType.sweater),
+            ClothingItem(photo: Image("sweaterImage"), brandName: "Brand A", color: .black, type: ClothingType.sweater),
+            ClothingItem(photo: Image("sweaterImage"), brandName: "Brand A", color: .black, type: ClothingType.sweater),
+            ClothingItem(photo: Image("sweaterImage"), brandName: "Brand A", color: .black, type: ClothingType.sweater),
+            ClothingItem(photo: Image("sweaterImage"), brandName: "Brand A", color: .black, type: ClothingType.sweater),
+            ClothingItem(photo: Image("sweaterImage"), brandName: "Brand A", color: .black, type: ClothingType.sweater),
+            ClothingItem(photo: Image("sweaterImage"), brandName: "Brand A", color: .black, type: ClothingType.sweater),
+            ClothingItem(photo: Image("sweaterImage"), brandName: "Brand A", color: .black, type: ClothingType.sweater),
+            ClothingItem(photo: Image("sweaterImage"), brandName: "Brand A", color: .black, type: ClothingType.sweater),
             // Add more sample items here
         ]
     }
     
     // Method to add a new clothing item to the array
-    func addClothingItem(photo: Image, brandName: String, color: String, clothingType: ClothingType) {
+    func addClothingItem(photo: Image, brandName: String, color: ClothingColor, clothingType: ClothingType) {
         let newItem = ClothingItem(photo: photo, brandName: brandName, color: color, type: clothingType)
         clothingItems.append(newItem)
     }
