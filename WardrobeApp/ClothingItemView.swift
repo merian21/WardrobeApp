@@ -48,11 +48,10 @@ struct ClothingItemView: View {
         .background(Color(UIColor.systemBackground))
         .cornerRadius(20)
 
-        .shadow(color: Color.black.opacity(0.05), radius: 1, x: 2, y: 2)
         .overlay(
             RoundedRectangle(cornerRadius: 20)
-                .stroke(style: StrokeStyle(lineWidth: 2, dash: [16]))
-                .foregroundColor(Color.black.opacity(0.05))
+                .stroke(style: StrokeStyle(lineWidth: 1))
+                .foregroundColor(Color.black.opacity(0.1))
         )
     }
 }

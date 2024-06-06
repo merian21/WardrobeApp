@@ -49,6 +49,11 @@ struct AddClothingItemView: View {
                             .cornerRadius(20)
                         }
                     }
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(style: StrokeStyle(lineWidth: 1))
+                            .foregroundColor(Color.black.opacity(0.1))
+                    )
                     .buttonStyle(PlainButtonStyle())
                     .onChange(of: selectedItem) { newItem in
                         Task {
@@ -69,6 +74,11 @@ struct AddClothingItemView: View {
                         .padding()
                         .background(Color.white)
                         .cornerRadius(20)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 20)
+                                .stroke(style: StrokeStyle(lineWidth: 1))
+                                .foregroundColor(Color.black.opacity(0.1))
+                        )
 
                         HStack {
                             Text("Color")
@@ -77,11 +87,17 @@ struct AddClothingItemView: View {
                             Image(systemName: "chevron.right")
                                 .foregroundColor(.black.opacity(0.3))
                         }
+                        
                         .frame(width: 320, height: 40)
                         .padding()
                         .background(Color.white)
                         .cornerRadius(20)
                         .contentShape(Rectangle())
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 20)
+                                .stroke(style: StrokeStyle(lineWidth: 1))
+                                .foregroundColor(Color.black.opacity(0.1))
+                        )
                         .onTapGesture {
                             isColorPickerPresented.toggle()
                         }
@@ -98,6 +114,11 @@ struct AddClothingItemView: View {
                         .background(Color.white)
                         .cornerRadius(20)
                         .contentShape(Rectangle())
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 20)
+                                .stroke(style: StrokeStyle(lineWidth: 1))
+                                .foregroundColor(Color.black.opacity(0.1))
+                        )
                         .onTapGesture {
                             isTypePickerPresented.toggle()
                         }
