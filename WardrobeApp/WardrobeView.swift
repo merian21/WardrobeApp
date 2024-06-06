@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WardrobeView: View {
     // Observing the ViewModel
-    @ObservedObject var viewModel = ClothingViewModel()
+    @ObservedObject var viewModel: ClothingViewModel
     
     // Defining the layout of the grid
     let columns = [
@@ -34,5 +34,5 @@ struct WardrobeView: View {
 }
 
 #Preview {
-    WardrobeView()
+    WardrobeView(viewModel: ClothingViewModel())
 }

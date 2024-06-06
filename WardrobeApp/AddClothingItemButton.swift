@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct AddClothingItemButton: View {
+    @State private var showAddClothingItemView = false
+    @ObservedObject var viewModel: ClothingViewModel
+    
     var body: some View {
         Button {
-            //TODO
+            showAddClothingItemView.toggle()
         } label: {
             Image(systemName: "plus")
                 .resizable()
@@ -22,10 +25,13 @@ struct AddClothingItemButton: View {
         .cornerRadius(20)
         .foregroundColor(Color(UIColor.systemBackground))
         .shadow(color: Color.black.opacity(0.2) ,radius: 1, x: 2, y: 2)
+        .sheet(isPresented: $showAddClothingItemView) {
+            AddClothingItemView(viewModel: viewModel)
+        }
 
     }
 }
 
 #Preview {
-    AddClothingItemButton()
+    AddClothingItemButton(viewModel: ClothingViewModel())
 }

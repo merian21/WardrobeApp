@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct AddClothingItemView: View {
     @Environment(\.presentationMode) var presentationMode
@@ -17,13 +18,16 @@ struct AddClothingItemView: View {
 
     @State private var isColorPickerPresented = false
     @State private var isTypePickerPresented = false
+    @State private var selectedItem: PhotosPickerItem? = nil
 
     var body: some View {
+        NavigationStack {
+        VStack(spacing: 0) {
 
-            VStack(spacing: 0) {
-                Button(action: {
-                    // Add functionality to select a photo
-                }) {
+            PhotosPicker(
+                selection: $selectedItem,
+                matching: .images,
+                photoLibrary: .shared()) {
                     if let selectedImage = selectedImage {
                         Image(uiImage: selectedImage)
                             .resizable()
@@ -39,6 +43,14 @@ struct AddClothingItemView: View {
                     }
                 }
                 .buttonStyle(PlainButtonStyle())
+                .onChange(of: selectedItem) { newItem in
+                    Task {
+                        if let data = try? await newItem?.loadTransferable(type: Data.self),
+                           let uiImage = UIImage(data: data) {
+                            selectedImage = uiImage
+                        }
+                    }
+                }
                 
                 Form() {
                     Section() {
@@ -95,7 +107,7 @@ struct AddClothingItemView: View {
                             .font(.title)
                             .fontWeight(.medium)
                             .foregroundColor(.white)
-
+                        
                     }
                     .padding()
                     .frame(width: 350, height: 60)
@@ -105,7 +117,6 @@ struct AddClothingItemView: View {
                 }
                 .padding()
             }
-            .navigationBarTitle("Add Clothing Item", displayMode: .inline)
             .background(Color(UIColor.systemGroupedBackground).edgesIgnoringSafeArea(.all))
             .navigationDestination(isPresented: $isColorPickerPresented) {
                 ClothingColorPickerView(selectedColor: $color)
@@ -114,7 +125,7 @@ struct AddClothingItemView: View {
                 ClothingTypePickerView(selectedType: $clothingType)
             }
         }
-    
+    }
 }
 
 #Preview {

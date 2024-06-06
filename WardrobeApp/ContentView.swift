@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var viewModel = ClothingViewModel()
+
     var body: some View {
         ZStack {
             TabView {
                 
-                
-                WardrobeView()
+                WardrobeView(viewModel: viewModel)
                     .tabItem {
                         Image(systemName: "square.grid.2x2.fill")
                         Text("Wardrobe")
@@ -34,7 +35,7 @@ struct ContentView: View {
             }
             VStack {
                 Spacer()
-                AddClothingItemButton()
+                AddClothingItemButton(viewModel: viewModel)
             }
         }
     }
