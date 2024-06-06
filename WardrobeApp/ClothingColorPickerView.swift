@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ClothingColorPickerView: View {
     @Binding var selectedColor: ClothingColor
+    @Environment(\.dismiss) var dismiss
+
     
     var body: some View {
         List {
@@ -26,7 +28,7 @@ struct ClothingColorPickerView: View {
                 }
                 .onTapGesture {
                     selectedColor = color
-                    // Dismiss the view, if needed
+                    dismiss()
                 }
             }
         }
