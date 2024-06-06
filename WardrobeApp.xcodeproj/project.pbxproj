@@ -20,6 +20,7 @@
 		3479E0AC2C10F91500D7BF22 /* AddClothingItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3479E0AB2C10F91500D7BF22 /* AddClothingItemButton.swift */; };
 		3479E0AE2C10FEA800D7BF22 /* AddClothingItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3479E0AD2C10FEA800D7BF22 /* AddClothingItemView.swift */; };
 		34B8A3A82C121668007DB13F /* ClothingColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B8A3A72C121668007DB13F /* ClothingColorPickerView.swift */; };
+		34B8A3AA2C1217AE007DB13F /* ClothingTypePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B8A3A92C1217AE007DB13F /* ClothingTypePickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		3479E0AB2C10F91500D7BF22 /* AddClothingItemButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClothingItemButton.swift; sourceTree = "<group>"; };
 		3479E0AD2C10FEA800D7BF22 /* AddClothingItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClothingItemView.swift; sourceTree = "<group>"; };
 		34B8A3A72C121668007DB13F /* ClothingColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingColorPickerView.swift; sourceTree = "<group>"; };
+		34B8A3A92C1217AE007DB13F /* ClothingTypePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothingTypePickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				3479E0A12C10E3ED00D7BF22 /* ClothingItemView.swift */,
 				3479E0A52C10F43A00D7BF22 /* ClothingViewModel.swift */,
 				34B8A3A72C121668007DB13F /* ClothingColorPickerView.swift */,
+				34B8A3A92C1217AE007DB13F /* ClothingTypePickerView.swift */,
 				3479E0A72C10F51500D7BF22 /* WardrobeView.swift */,
 				3479E0A32C10EB4B00D7BF22 /* sweaterImage.jpeg */,
 			);
@@ -165,6 +168,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34B8A3AA2C1217AE007DB13F /* ClothingTypePickerView.swift in Sources */,
 				34B8A3A82C121668007DB13F /* ClothingColorPickerView.swift in Sources */,
 				3479E0A02C10E2E900D7BF22 /* ClothingItem.swift in Sources */,
 				3479E0AE2C10FEA800D7BF22 /* AddClothingItemView.swift in Sources */,
