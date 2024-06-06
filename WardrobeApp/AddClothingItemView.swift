@@ -123,6 +123,7 @@ struct AddClothingItemView: View {
                 }
                 .padding()
             }
+        .padding(.top, 15)
             .background(Color(UIColor.systemGroupedBackground).edgesIgnoringSafeArea(.all))
             .navigationDestination(isPresented: $isColorPickerPresented) {
                 ClothingColorPickerView(selectedColor: $color)
@@ -130,9 +131,14 @@ struct AddClothingItemView: View {
             .navigationDestination(isPresented: $isTypePickerPresented) {
                 ClothingTypePickerView(selectedType: $clothingType)
             }
+
         }
+        
     }
+    
 }
+
+
 
 #Preview {
     AddClothingItemView(viewModel: ClothingViewModel())
