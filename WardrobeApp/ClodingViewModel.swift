@@ -34,4 +34,9 @@ class ClothingViewModel: ObservableObject {
         let newItem = ClothingItem(photo: photo, brandName: brandName, color: color, type: clothingType)
         clothingItems.append(newItem)
     }
+    
+    // Method to add a new clothing item to the array
+    func addClothingItem(item: ClothingItem) {
+        clothingItems.append(item)
+    }
 }
