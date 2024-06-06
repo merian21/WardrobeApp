@@ -35,11 +35,17 @@ struct AddClothingItemView: View {
                             .frame(width: 350, height: 350)
                             .cornerRadius(20)
                     } else {
-                        Image("sweaterImage")
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 350, height: 350)
-                            .cornerRadius(20)
+                        VStack {
+                            Image(systemName: "plus")
+                                .resizable()
+                                .foregroundColor(.black.opacity(0.3))
+                                .frame(width: 50, height: 50)
+                            Text("Please select a photo")
+                                .foregroundColor(.black.opacity(0.3))
+                        }
+                        .frame(width: 350, height: 350)
+                        .background(Color.white)
+                        .cornerRadius(20)
                     }
                 }
                 .buttonStyle(PlainButtonStyle())
