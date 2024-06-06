@@ -18,7 +18,7 @@ struct AddClothingItemView: View {
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("Photo")) {
+                Section() {
                     Button(action: {
                         // Add functionality to select a photo
                     }) {
@@ -26,16 +26,17 @@ struct AddClothingItemView: View {
                             Image(uiImage: selectedImage)
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
-                                .frame(maxWidth: .infinity, maxHeight: 200)
+                                .frame(width: 350, height: 350)
                         } else {
-                            Image(systemName: "photo")
+                            Image("sweaterImage")
                                 .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(maxWidth: .infinity, maxHeight: 200)
-                                .foregroundColor(.gray)
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 350, height: 350)
                         }
                     }
                 }
+                .frame(width: 350, height: 350)
+                .cornerRadius(20)
                 Section(header: Text("Details")) {
                     TextField("Brand Name", text: $brandName)
                     Picker("Color", selection: $color) {
@@ -63,7 +64,7 @@ struct AddClothingItemView: View {
             }, trailing: Button("Save") {
                 if let selectedImage = selectedImage {
                     let newItem = ClothingItem(photo: Image(uiImage: selectedImage), brandName: brandName, color: color, type: clothingType)
-                    viewModel.addClothingItem(photo: Image(uiImage: selectedImage), brandName: brandName, color: color, type: clothingType)
+                    viewModel.addClothingItem(item: newItem)
                 }
                 presentationMode.wrappedValue.dismiss()
             })
@@ -72,5 +73,5 @@ struct AddClothingItemView: View {
 }
 
 #Preview {
-    AddClothingItemView()
+    AddClothingItemView(viewModel: ClothingViewModel())
 }
