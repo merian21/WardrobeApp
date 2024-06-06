@@ -22,50 +22,54 @@ struct AddClothingItemView: View {
 
     var body: some View {
         NavigationStack {
-        VStack(spacing: 0) {
-
-            PhotosPicker(
-                selection: $selectedItem,
-                matching: .images,
-                photoLibrary: .shared()) {
-                    if let selectedImage = selectedImage {
-                        Image(uiImage: selectedImage)
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 350, height: 350)
-                            .cornerRadius(20)
-                    } else {
-                        VStack {
-                            Image(systemName: "plus")
+            ScrollView {
+                VStack(spacing: 16) {
+                    PhotosPicker(
+                        selection: $selectedItem,
+                        matching: .images,
+                        photoLibrary: .shared()
+                    ) {
+                        if let selectedImage = selectedImage {
+                            Image(uiImage: selectedImage)
                                 .resizable()
-                                .foregroundColor(.black.opacity(0.3))
-                                .frame(width: 50, height: 50)
-                            Text("Please select a photo")
-                                .foregroundColor(.black.opacity(0.3))
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 350, height: 350)
+                                .cornerRadius(20)
+                        } else {
+                            VStack {
+                                Image(systemName: "plus")
+                                    .resizable()
+                                    .foregroundColor(.black.opacity(0.3))
+                                    .frame(width: 50, height: 50)
+                                Text("Please select a photo")
+                                    .foregroundColor(.black.opacity(0.3))
+                            }
+                            .frame(width: 350, height: 350)
+                            .background(Color.white)
+                            .cornerRadius(20)
                         }
-                        .frame(width: 350, height: 350)
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    .onChange(of: selectedItem) { newItem in
+                        Task {
+                            if let data = try? await newItem?.loadTransferable(type: Data.self),
+                               let uiImage = UIImage(data: data) {
+                                selectedImage = uiImage
+                            }
+                        }
+                    }
+
+                    VStack(spacing: 22) {
+                        HStack {
+                            TextField("Brand", text: $brandName)
+                                .frame(width: 320)
+                                .font(.headline)
+                        }
+                        .frame(width: 320, height: 40)
+                        .padding()
                         .background(Color.white)
                         .cornerRadius(20)
-                    }
-                }
-                .buttonStyle(PlainButtonStyle())
-                .onChange(of: selectedItem) { newItem in
-                    Task {
-                        if let data = try? await newItem?.loadTransferable(type: Data.self),
-                           let uiImage = UIImage(data: data) {
-                            selectedImage = uiImage
-                        }
-                    }
-                }
-                
-                Form() {
-                    Section() {
-                        TextField("Brand", text: $brandName)
-                    }
-                    .frame(height: 40)
-                    
-                    
-                    Section {
+
                         HStack {
                             Text("Color")
                             Spacer()
@@ -73,12 +77,15 @@ struct AddClothingItemView: View {
                             Image(systemName: "chevron.right")
                                 .foregroundColor(.black.opacity(0.3))
                         }
-                        .frame(height: 40)
+                        .frame(width: 320, height: 40)
+                        .padding()
+                        .background(Color.white)
+                        .cornerRadius(20)
                         .contentShape(Rectangle())
                         .onTapGesture {
                             isColorPickerPresented.toggle()
                         }
-                        
+
                         HStack {
                             Text("Category")
                             Spacer()
@@ -86,44 +93,45 @@ struct AddClothingItemView: View {
                             Image(systemName: "chevron.right")
                                 .foregroundColor(.black.opacity(0.3))
                         }
-                        .frame(height: 40)
+                        .frame(width: 320, height: 40)
+                        .padding()
+                        .background(Color.white)
+                        .cornerRadius(20)
                         .contentShape(Rectangle())
                         .onTapGesture {
                             isTypePickerPresented.toggle()
                         }
                     }
-                }
-                .formStyle(GroupedFormStyle())
-                
-                Button(action: {
-                    if let selectedImage = selectedImage {
-                        let newItem = ClothingItem(photo: Image(uiImage: selectedImage), brandName: brandName, color: color, type: clothingType)
-                        viewModel.addClothingItem(item: newItem)
-                    }
-                    presentationMode.wrappedValue.dismiss()
-                }) {
-                    
-                    HStack {
-                        Image(systemName: "plus")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 30, height: 30)
-                            .foregroundColor(.white)
-                        Text(" Add Item")
-                            .font(.title)
-                            .fontWeight(.medium)
-                            .foregroundColor(.white)
-                        
+                    .padding()
+
+                    Button(action: {
+                        if let selectedImage = selectedImage {
+                            let newItem = ClothingItem(photo: Image(uiImage: selectedImage), brandName: brandName, color: color, type: clothingType)
+                            viewModel.addClothingItem(item: newItem)
+                        }
+                        presentationMode.wrappedValue.dismiss()
+                    }) {
+                        HStack {
+                            Image(systemName: "plus")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 30, height: 30)
+                                .foregroundColor(.white)
+                            Text(" Add Item")
+                                .font(.title)
+                                .fontWeight(.medium)
+                                .foregroundColor(.white)
+                        }
+                        .padding()
+                        .frame(width: 350, height: 60)
+                        .background(Color.black)
+                        .cornerRadius(20)
+                        .shadow(color: Color.black.opacity(0.2), radius: 1, x: 4, y: 4)
                     }
                     .padding()
-                    .frame(width: 350, height: 60)
-                    .background(Color.black)
-                    .cornerRadius(20)
-                    .shadow(color: Color.black.opacity(0.2), radius: 1, x: 4, y: 4)
                 }
-                .padding()
+                .padding(.top, 20)
             }
-        .padding(.top, 15)
             .background(Color(UIColor.systemGroupedBackground).edgesIgnoringSafeArea(.all))
             .navigationDestination(isPresented: $isColorPickerPresented) {
                 ClothingColorPickerView(selectedColor: $color)
@@ -131,13 +139,9 @@ struct AddClothingItemView: View {
             .navigationDestination(isPresented: $isTypePickerPresented) {
                 ClothingTypePickerView(selectedType: $clothingType)
             }
-
         }
-        
     }
-    
 }
-
 
 
 #Preview {
